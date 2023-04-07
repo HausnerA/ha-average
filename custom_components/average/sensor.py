@@ -256,7 +256,7 @@ class AverageSensor(SensorEntity):
             return None
 
         try:
-            temperature = TemperatureConverter.convert(float(temperature), entity_unit, ha_unit)
+            temperature = unit_conversion.TemperatureConverter(float(temperature), entity_unit, ha_unit)
         except ValueError as exc:
             _LOGGER.error('Could not convert value "%s" to float: %s', state, exc)
             return None
